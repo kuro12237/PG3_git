@@ -9,6 +9,7 @@ T Min(T a,T b)
 	if (b<a){
 		return b;
 	}
+	return 0;
 };
 
 template<>
