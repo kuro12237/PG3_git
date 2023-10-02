@@ -57,7 +57,6 @@ char Min<char>( char a, char b)
 	return 0;
 }
 
-
 int main(void)
 {
 	//int
