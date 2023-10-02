@@ -20,7 +20,6 @@ char Min<char>( char a, char b)
 
 int main(void)
 {
-
 	//int
 	printf("%d\n",Min<int>(512, 6));
 	
