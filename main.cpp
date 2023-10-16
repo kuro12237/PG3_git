@@ -57,7 +57,7 @@ int main() {
 			}
 			isSelect = true;
 		}
-	
+
 		if (isSelect)
 		{
 			TimeCount(diceGame, TestScanf, Timer,isSelect);
