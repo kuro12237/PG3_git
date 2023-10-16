@@ -17,7 +17,7 @@ int main()
 	int NormalTotalWage = hourlyWage * workingTime;
 	int RecursiveTotalWage = RecursiveSalary(workingTime);
 
-	printf("%d“­‚¢‚½‚Æ‚«‚Ì‹‹—¿\n", workingTime);
+	printf("%dŠÔ“­‚¢‚½‚Æ‚«‚Ì‹‹—¿\n", workingTime);
 	printf("ˆê”Ê“I’À‹à‘ÌŒn‚Ì‹‹—¿ : %d\n",NormalTotalWage);
 	printf("Ä‹N“I’À‹à‘ÌŒn‚Ì‹‹—¿ : %d\n", RecursiveTotalWage);
 
