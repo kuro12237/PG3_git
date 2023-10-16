@@ -12,17 +12,6 @@ int AnsDice(void)
 	int result = distribution(seedGenerator);
 	return result;
 }
-string IsIven(int num)
-{
-	if (num % 2 == 0)
-	{
-		return "‹ô”";
-	}
-	else
-	{
-		return "Šï”";
-	}
-}
 
 void SelectNumber(int *number)
 {
@@ -30,9 +19,6 @@ void SelectNumber(int *number)
 
 	printf("‘I‘ğ‚µ‚½”‚Í%d‚Å‚·\n", *number);
 	printf("Dice‚Í%d‚Ì–Ú‚ªo‚Ü‚µ‚½\n", ans);
-	printf("‘I‘ğ‚µ‚½”‚Í%c‚Å‚µ‚½\n", IsIven(*number));
-	printf("Dice‚Í%c‚Å‚µ‚½\n", IsIven(ans));
-
 	if (*number % 2 == 0 == ans % 2 == 0)
 	{
 		printf("YouWin\n");
