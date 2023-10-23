@@ -19,6 +19,7 @@ void SelectNumber(int *number)
 
 	printf("‘I‘ğ‚µ‚½”‚Í%d‚Å‚·\n", *number);
 	printf("Dice‚Í%d‚Ì–Ú‚ªo‚Ü‚µ‚½\n", ans);
+	
 	if (*number % 2 == 0 == ans % 2 == 0)
 	{
 		printf("YouWin\n");
