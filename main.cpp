@@ -38,6 +38,7 @@ void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
 }
 
 int main() {
+
 	int TestScanf;
 	int Timer = 3;
 	bool isSelect = false;
