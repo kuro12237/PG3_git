@@ -1,4 +1,4 @@
-#include<stdio.h>
+ï»¿#include<stdio.h>
 
 int RecursiveSalary(int workingTime)
 {
@@ -17,9 +17,9 @@ int main()
 	int NormalTotalWage = hourlyWage * workingTime;
 	int RecursiveTotalWage = RecursiveSalary(workingTime);
 
-	printf("%dŠÔ“­‚¢‚½‚Æ‚«‚Ì‹‹—¿\n", workingTime);
-	printf("ˆê”Ê“I’À‹à‘ÌŒn‚Ì‹‹—¿ : %d\n",NormalTotalWage);
-	printf("Ä‹N“I’À‹à‘ÌŒn‚Ì‹‹—¿ : %d\n", RecursiveTotalWage);
+	printf("%dæ™‚é–“åƒã„ãŸã¨ãã®çµ¦æ–™\n", workingTime);
+	printf("ä¸€èˆ¬çš„è³ƒé‡‘ä½“ç³»ã®çµ¦æ–™ : %d\n",NormalTotalWage);
+	printf("å†èµ·çš„è³ƒé‡‘ä½“ç³»ã®çµ¦æ–™ : %d\n", RecursiveTotalWage);
 
 	return  0;
 }
