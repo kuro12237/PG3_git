@@ -17,7 +17,7 @@ template<>
 char Min<char>( char a, char b)
 {
 	printf("数字以外は代入できません\n");
-	return '/0';
+	return 0;
 }
 
 int main(void)
