@@ -6,34 +6,33 @@
 using namespace std;
 typedef void (*DiceGame)(int *);
 
-//function<int()> AnsDice = []() {
-//	random_device seedGenerator;
-//	uniform_int_distribution<int>distribution(1, 6);
-//	int result = distribution(seedGenerator);
-//	return result;
-//};
+function<int()> AnsDice = []() {
+	random_device seedGenerator;
+	uniform_int_distribution<int>distribution(1, 6);
+	int result = distribution(seedGenerator);
+	return result;
+};
 
-function<void()> AnsPrint = []()
+function<void(int,int*)> AnsPrint = [](int diceAns,int *number)
 {
-	//printf("選択した数は%dです\n", *number);
-	//printf("Diceは%dの目が出ました\n", diceAns);
+	printf("選択した数は%dです\n", *number);
+	printf("Diceは%dの目が出ました\n", diceAns);
 
-	//if (*number % 2 == 0 == diceAns % 2 == 0)
-	//{
-	//	printf("YouWin\n");
-	//}
-	//else
-	//{
-	//	printf("YouLose\n");
-	//}
+	if (*number % 2 == 0 == diceAns % 2 == 0)
+	{
+		printf("YouWin\n");
+	}
+	else
+	{
+		printf("YouLose\n");
+	}
 };
 
 
-void SelectNumber(int *number)
+void AnsFanc(int *number)
 {
-    //int ans = AnsDice();
-
-
+    int ansDice = AnsDice();
+	AnsPrint(ansDice,number);
 }
 
 void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
@@ -45,12 +44,12 @@ void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
 
 int main() {
 
-	int TestScanf = {};
+	int TestScanf = 0;
 	int Timer = 3;
 	bool isSelect = false;
 
 	DiceGame diceGame;
-	diceGame = SelectNumber;
+	diceGame = AnsFanc;
 
 	while (true)
 	{
@@ -59,7 +58,7 @@ int main() {
 			printf("1か2keyを入力してください\n");
 			scanf_s("%d", &TestScanf);
 
-			if (TestScanf<=0||TestScanf>=3)
+			if (TestScanf <= 0 || TestScanf >= 3)
 			{
 				continue;
 			}
