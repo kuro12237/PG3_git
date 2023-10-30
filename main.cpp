@@ -1,33 +1,39 @@
 #include<stdio.h>
 #include<random>
 #include<Windows.h>
+#include<functional>
 
 using namespace std;
 typedef void (*DiceGame)(int *);
 
-int AnsDice(void) 
+//function<int()> AnsDice = []() {
+//	random_device seedGenerator;
+//	uniform_int_distribution<int>distribution(1, 6);
+//	int result = distribution(seedGenerator);
+//	return result;
+//};
+
+function<void()> AnsPrint = []()
 {
-	random_device seedGenerator;
-	uniform_int_distribution<int>distribution(1,6);
-	int result = distribution(seedGenerator);
-	return result;
-}
+	//printf("選択した数は%dです\n", *number);
+	//printf("Diceは%dの目が出ました\n", diceAns);
+
+	//if (*number % 2 == 0 == diceAns % 2 == 0)
+	//{
+	//	printf("YouWin\n");
+	//}
+	//else
+	//{
+	//	printf("YouLose\n");
+	//}
+};
+
 
 void SelectNumber(int *number)
 {
-	int ans = AnsDice();
+    //int ans = AnsDice();
 
-	printf("選択した数は%dです\n", *number);
-	printf("Diceは%dの目が出ました\n", ans);
-	
-	if (*number % 2 == 0 == ans % 2 == 0)
-	{
-		printf("YouWin\n");
-	}
-	else
-	{
-		printf("YouLose\n");
-	}
+
 }
 
 void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
@@ -39,7 +45,7 @@ void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
 
 int main() {
 
-	int TestScanf;
+	int TestScanf = {};
 	int Timer = 3;
 	bool isSelect = false;
 
