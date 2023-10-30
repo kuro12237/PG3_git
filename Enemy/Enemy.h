@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include<stdio.h>
 
 class Enemy
 {
@@ -14,6 +15,9 @@ public:
 
 private:
 
+	void Approach();
+	void Leave();
+
 	//メンバ関数ポインタテーブル
-	static void (Enemy::* pFuncTable[])();
+	static void (Enemy::* phase_[])();
 };
