@@ -8,7 +8,7 @@ Enemy::~Enemy()
 {
 }
 
-void (Enemy::* Enemy::phase_[])()
+void (Enemy::* Enemy::sPhaseTable_[])()
 = {
 	&Enemy::Approach,
 	&Enemy::Leave
@@ -16,36 +16,37 @@ void (Enemy::* Enemy::phase_[])()
 
 void Enemy::Init()
 {
-	*phase_ = &Enemy::Approach;
+	printf("初期化\n");
+	phase_ = Phase::Approach;
 }
 
 void Enemy::Update()
 {
-	(this->*phase_[0])();
-}
-
-void Enemy::Draw()
-{
-
+	(this->*sPhaseTable_[static_cast<size_t>(this->phase_)])();
 }
 
 void Enemy::Approach()
 {
-	printf("EnemyPhase  Approch\n");
+	printf("EnemyPhase  Approch\n 切り替わりまで : %d\n",PhaseTimer_);
 	Sleep(1 * 1000);
+
 	PhaseTimer_--;
 	if (PhaseTimer_<=0)
 	{
 		PhaseTimer_ = PhaseTimerMax_;
-		*phase_ = &Enemy::Leave;
+		phase_ = Phase::Leave;
 	}
 }
 
 void Enemy::Leave()
 {
-	printf("EnemyPhase  Leave\n");
+	printf("EnemyPhase  Leave\n 終了まで : %d\n",PhaseTimer_);
 	Sleep(1 * 1000);
+	
 	PhaseTimer_--;
-
+	if (PhaseTimer_<=0)
+	{
+		isGameLoop_ = false;
+	}
 }
 

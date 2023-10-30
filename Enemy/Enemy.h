@@ -12,17 +12,24 @@ public:
 
 	void Update();
 
-	void Draw();
-
+	bool GetIsGameLoop() { return isGameLoop_; }
 private:
 
 	void Approach();
 	void Leave();
 
-	const int PhaseTimerMax_ = 10;
-	int PhaseTimer_ = 10;
-	//メンバ関数ポインタテーブル
-	static void (Enemy::* phase_[])();
+	enum class Phase {
+	     Approach,
+	     Leave
+	};
+	
+	Phase phase_{};
 
-	char ModePrint_ = 'None';
+	//メンバ関数ポインタテーブル
+	static void (Enemy::* sPhaseTable_[])();
+
+	const int PhaseTimerMax_ = 5;
+	int PhaseTimer_ = PhaseTimerMax_;
+
+	bool isGameLoop_ = true;
 };

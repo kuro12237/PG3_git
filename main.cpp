@@ -7,16 +7,15 @@ int main()
 	Enemy* enemy = new Enemy();
 	enemy->Init();
 
-
 	bool isGameLoop = true;
 
 	while (isGameLoop)
 	{
 		enemy->Update();
 
-		enemy->Draw();
+		isGameLoop = enemy->GetIsGameLoop();
 	}
-
+	printf("終了\n");
 	delete enemy;
 	return 0;
 }
