@@ -16,7 +16,7 @@ void (Enemy::* Enemy::phase_[])()
 
 void Enemy::Init()
 {
-	*phase_ = Enemy::Approach;
+	*phase_ = &Enemy::Approach;
 }
 
 void Enemy::Update()
@@ -30,10 +30,17 @@ void Enemy::Draw()
 
 void Enemy::Approach()
 {
-	printf("EnemyPhase  Approch");
+	printf("EnemyPhase  Approch\n");
+	Sleep(1 * 1000);
+	PhaseTimer_--;
+	if (PhaseTimer_<=0)
+	{
+		*phase_ = &Enemy::Leave;
+	}
 }
 
 void Enemy::Leave()
 {
+	printf("EnemyPhase  Leave\n");
 }
 

@@ -7,9 +7,15 @@ int main()
 	Enemy* enemy = new Enemy();
 	enemy->Init();
 
-	enemy->Update();
 
-	enemy->Draw();
+	bool isGameLoop = true;
+
+	while (isGameLoop)
+	{
+		enemy->Update();
+
+		enemy->Draw();
+	}
 
 	delete enemy;
 	return 0;
