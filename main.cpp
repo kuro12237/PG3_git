@@ -28,7 +28,6 @@ function<void(int,int*)> AnsPrint = [](int diceAns,int *number)
 	}
 };
 
-
 void AnsFanc(int *number)
 {
     int ansDice = AnsDice();
