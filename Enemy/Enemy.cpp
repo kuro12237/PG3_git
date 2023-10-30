@@ -8,3 +8,11 @@ Enemy::~Enemy()
 {
 }
 
+void Enemy::Init()
+{
+}
+
+void Enemy::Update()
+{
+}
+

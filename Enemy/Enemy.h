@@ -11,7 +11,9 @@ public:
 	void Update();
 
 	void Draw();
-private:
-	void (Enemy::*)
 
+private:
+
+	//メンバ関数ポインタテーブル
+	static void (Enemy::* pFuncTable[])();
 };
