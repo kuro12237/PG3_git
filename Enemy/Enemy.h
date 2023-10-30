@@ -13,6 +13,7 @@ public:
 	void Update();
 
 	bool GetIsGameLoop() { return isGameLoop_; }
+
 private:
 
 	void Approach();
