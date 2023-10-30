@@ -26,6 +26,7 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
+
 }
 
 void Enemy::Approach()
@@ -35,6 +36,7 @@ void Enemy::Approach()
 	PhaseTimer_--;
 	if (PhaseTimer_<=0)
 	{
+		PhaseTimer_ = PhaseTimerMax_;
 		*phase_ = &Enemy::Leave;
 	}
 }
@@ -42,5 +44,8 @@ void Enemy::Approach()
 void Enemy::Leave()
 {
 	printf("EnemyPhase  Leave\n");
+	Sleep(1 * 1000);
+	PhaseTimer_--;
+
 }
 
