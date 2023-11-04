@@ -16,6 +16,7 @@ int main(void)
 			fruis[i]->Buy();
 			delete fruis[i];
 		}
+
 		if (i == 1)
 		{
 			fruis[i] = new Orange();
