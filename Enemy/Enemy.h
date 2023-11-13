@@ -17,11 +17,13 @@ public:
 private:
 
 	void Approach();
+	void Attack();
 	void Leave();
 
 	enum class Phase {
 	     Approach,
-	     Leave
+		 Attack,
+	     Leave,
 	};
 	
 	Phase phase_{};
