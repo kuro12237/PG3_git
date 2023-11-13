@@ -8,6 +8,7 @@ Apple::Apple()
 
 void Apple::Buy()
 {
-	
+	std::cout << GetFruiaName() + "を買おう" << std::endl;
 
+	std::cout << "このフルーツは" << std::endl;
 }
