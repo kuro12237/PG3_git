@@ -62,6 +62,4 @@ void Enemy::Attack()
 		PhaseTimer_ = PhaseTimerMax_;
 		phase_ = Phase::Leave;
 	}
-
 }
-

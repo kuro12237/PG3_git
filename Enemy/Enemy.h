@@ -28,7 +28,6 @@ private:
 	
 	Phase phase_{};
 
-	//メンバ関数ポインタテーブル
 	static void (Enemy::* sPhaseTable_[])();
 
 	const int PhaseTimerMax_ = 5;
