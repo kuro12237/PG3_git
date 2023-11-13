@@ -4,13 +4,13 @@
 
 int main()
 {
-	Ishape* Rectangle_ = new Rectangle();
+	IShape* Rectangle_ = new Rectangle();
 
 	Rectangle_->SetSize({ 10.0f,10.0f });
 	Rectangle_->Size();
 	Rectangle_->Draw();
 
-    Ishape* Circle_ = new Circle();
+    IShape* Circle_ = new Circle();
     
     Circle_->SetSize({ 10.0f,10.0f });
     Circle_->Size();

@@ -1,9 +1,9 @@
 ﻿#pragma once
-#include"Ishape.h"
+#include"IShape.h"
 #include<numbers>
 #include<stdio.h>
 
-class Circle : public Ishape
+class Circle : public IShape
 {
 public:
 	Circle() {};

@@ -1,11 +1,11 @@
 ﻿#pragma once
 #include"../math/Vec2.h"
 
-class Ishape
+class IShape
 {
 public:
-	Ishape() {};
-	virtual ~Ishape() {};
+	IShape() {};
+	virtual ~IShape() {};
 
 	virtual void Size() = 0;
 	virtual void Draw() = 0;
