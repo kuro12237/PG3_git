@@ -3,12 +3,9 @@
 Apple::Apple()
 {
 	SetFruisName("リンゴ");
-	
 }
 
 void Apple::Buy()
 {
-	std::cout << GetFruiaName() + "を買おう" << std::endl;
-
-	std::cout << "このフルーツは" << std::endl;
+	std::cout << "この" + GetFruiaName() + "は青森県産だ" << std::endl;
 }

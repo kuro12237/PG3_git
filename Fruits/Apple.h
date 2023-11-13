@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include"Fruis.h"
 #include<iostream>
+#include"Fruis.h"
 
 class Apple : public Fruits
 {
@@ -9,6 +9,7 @@ public:
 	~Apple() {};
 
 	void Buy()override;
+
 private:
 
 };

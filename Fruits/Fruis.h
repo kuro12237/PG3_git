@@ -5,17 +5,17 @@
 class Fruits
 {
 public:
-	Fruits();
-	virtual ~Fruits() {};
+	Fruits() {};
+	virtual ~Fruits();
 
-	virtual void Buy() {};
+	virtual void Buy();
 
 	void SetFruisName(std::string name) { fruitsName_ = name; }
 	std::string GetFruiaName() { return fruitsName_; }
 
 private:
 
-	std::string fruitsName_ = "フルーツ";
+	std::string fruitsName_ = "";
 
 };
 

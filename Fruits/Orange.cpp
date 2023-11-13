@@ -5,6 +5,7 @@ Orange::Orange()
 	SetFruisName("オレンジ");
 }
 
-Orange::~Orange()
+void Orange::Buy()
 {
+	std::cout << "この" + GetFruiaName() + "は広島県産だ" << std::endl;
 }
