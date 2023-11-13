@@ -8,7 +8,7 @@ public:
 	Fruits() {};
 	virtual ~Fruits();
 
-	virtual void Buy();
+	virtual void Explain();
 
 	void SetFruisName(std::string name) { fruitsName_ = name; }
 	std::string GetFruiaName() { return fruitsName_; }

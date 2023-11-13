@@ -5,7 +5,7 @@ Apple::Apple()
 	SetFruisName("リンゴ");
 }
 
-void Apple::Buy()
+void Apple::Explain()
 {
 	std::cout << "この" + GetFruiaName() + "は青森県産だ" << std::endl;
 }

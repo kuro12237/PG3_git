@@ -8,19 +8,19 @@ int main(void)
 	for (int i = 0; i < 2; i++)
 	{
 		fruis[i] = new Fruits();
-		fruis[i]->Buy();
+		fruis[i]->Explain();
 
 		if (i == 0)
 		{
 			fruis[i] = new Apple();
-			fruis[i]->Buy();
+			fruis[i]->Explain();
 			delete fruis[i];
 		}
 
 		if (i == 1)
 		{
 			fruis[i] = new Orange();
-			fruis[i]->Buy();
+			fruis[i]->Explain();
 			delete fruis[i];
 		}
 	}

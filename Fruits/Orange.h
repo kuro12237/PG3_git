@@ -8,7 +8,7 @@ public:
 	Orange();
 	~Orange() {};
 
-	void Buy()override;
+	void Explain()override;
 
 private:
 

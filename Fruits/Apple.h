@@ -8,7 +8,7 @@ public:
 	Apple();
 	~Apple() {};
 
-	void Buy()override;
+	void Explain()override;
 
 private:
 
