@@ -11,6 +11,7 @@ public:
 	void Size()override;
 
 	void Draw()override;
+
 private:
 
 };
