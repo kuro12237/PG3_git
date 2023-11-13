@@ -1,11 +1,13 @@
 ﻿#include"Apple.h"
 
-Apple::~Apple()
+Apple::Apple()
 {
-	printf("リンゴ値段高すぎ\n");
+	SetFruisName("リンゴ");
+	
 }
 
 void Apple::Buy()
 {
-	printf("リンゴを買おう\n");
+	
+
 }

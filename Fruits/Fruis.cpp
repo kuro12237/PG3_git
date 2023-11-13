@@ -1,6 +1,7 @@
 ﻿#include "Fruis.h"
+#include<iostream>
 
-void Fruits::Buy()
+Fruits::Fruits()
 {
-	printf("フルーツを買いたい\n");
+	std::cout << "どのフルーツを買う？" << std::endl;
 }

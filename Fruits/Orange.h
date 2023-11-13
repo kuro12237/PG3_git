@@ -4,10 +4,8 @@
 class Orange : public Fruits
 {
 public:
-	Orange() {};
+	Orange();
 	~Orange();
-
-	void Buy()override;
 private:
 
 };

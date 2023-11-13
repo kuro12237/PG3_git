@@ -1,11 +1,10 @@
 ﻿#include "Orange.h"
 
-Orange::~Orange()
+Orange::Orange()
 {
-	printf("オレンジ値段安すぎ、いっぱい買うか～");
+	SetFruisName("オレンジ");
 }
 
-void Orange::Buy()
+Orange::~Orange()
 {
-	printf("オレンジを買おう\n");
 }
