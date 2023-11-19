@@ -5,6 +5,10 @@
 
 using namespace std;
 
+random_device randomDevice;
+mt19937 mtrand(randomDevice());
+function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
+
 void DiceResultPrint(int diceRollNumber)
 {
 	printf("%dが出ました\n", diceRollNumber);
@@ -21,15 +25,11 @@ int TimeCount(function<int()> coll,int &Timer)
 {
 	for (; Timer > 0; Timer--)
 	{
-		printf("%d\n", Timer);
+		printf("%d秒前\n", Timer);
 		Sleep(1000);
 	}
 	return coll();
 }
-
-random_device randomDevice;
-mt19937 mtrand(randomDevice());
-function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
 
 int main() {
 
@@ -67,9 +67,11 @@ int main() {
 			else {
 				printf("YouLose\n");
 			}
+
 			isSelect = false;
 			Timer = 3;
 		}
 	}
+
 	return 0;
 }
