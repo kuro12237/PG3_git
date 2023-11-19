@@ -37,7 +37,6 @@ int main() {
 	int Timer = 3;
 	bool isSelect = false;
 
-
 	while (true)
 	{
 		if (!isSelect)
