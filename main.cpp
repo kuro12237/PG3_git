@@ -4,60 +4,49 @@
 #include<functional>
 
 using namespace std;
-typedef void (*DiceGame)(int *);
 
-function<int()> AnsDice = []() {
-	random_device seedGenerator;
-	uniform_int_distribution<int>distribution(1, 6);
-	int result = distribution(seedGenerator);
-	return result;
-};
-
-function<void(int,int*)> AnsPrint = [](int diceAns,int *number)
+void DiceResultPrint(int diceRollNumber)
 {
-	printf("‘I‘ğ‚µ‚½”‚Í%d‚Å‚·\n", *number);
-	printf("Dice‚Í%d‚Ì–Ú‚ªo‚Ü‚µ‚½\n", diceAns);
-
-	if (*number % 2 == 0 == diceAns % 2 == 0)
-	{
-		printf("YouWin\n");
+	printf("%dãŒå‡ºã¾ã—ãŸ\n", diceRollNumber);
+	
+	if (diceRollNumber % 2 == 0) {
+		printf("ä¸ã§ã—ãŸ\n");
 	}
-	else
-	{
-		printf("YouLose\n");
+	if (diceRollNumber % 2 == 1) {
+		printf("åŠã§ã—ãŸ\n");
 	}
 };
 
-void AnsFanc(int *number)
+int TimeCount(function<int()> coll,int &Timer)
 {
-    int ansDice = AnsDice();
-	AnsPrint(ansDice,number);
+	for (; Timer > 0; Timer--)
+	{
+		printf("%d\n", Timer);
+		Sleep(1000);
+	}
+	return coll();
 }
 
-void TimeCount(DiceGame d,int SelectNumber,int &Timer,bool &IsSelect)
-{
-	Sleep(Timer * 1000);
-	d(&SelectNumber);
-	IsSelect = false;
-}
+random_device randomDevice;
+mt19937 mtrand(randomDevice());
+function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
 
 int main() {
 
-	int TestScanf = 0;
+	int PlayerAns = 0;
 	int Timer = 3;
 	bool isSelect = false;
 
-	DiceGame diceGame;
-	diceGame = AnsFanc;
 
 	while (true)
 	{
 		if (!isSelect)
 		{
-			printf("1‚©2key‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
-			scanf_s("%d", &TestScanf);
+			printf("1ã‹2keyã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
+			scanf_s("%d", &PlayerAns);
 
-			if (TestScanf <= 0 || TestScanf >= 3)
+			//0ä»¥ä¸‹3ä»¥ä¸Šã®å ´åˆã‚¹ã‚­ãƒƒãƒ—
+			if (PlayerAns <= 0 || PlayerAns >= 3)
 			{
 				continue;
 			}
@@ -66,7 +55,20 @@ int main() {
 
 		if (isSelect)
 		{
-			TimeCount(diceGame, TestScanf, Timer,isSelect);
+			int DiceResult = TimeCount(DiseRoll, Timer);
+			DiceResultPrint(DiceResult);
+
+			if (DiceResult % 2 == 0 && PlayerAns == 2) {
+				printf("YouWin\n");
+			}
+			else if (DiceResult % 2 == 1 && PlayerAns == 1) {
+				printf("YouWin\n");
+			}
+			else {
+				printf("YouLose\n");
+			}
+			isSelect = false;
+			Timer = 3;
 		}
 	}
 	return 0;
