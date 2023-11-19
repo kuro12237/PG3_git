@@ -7,7 +7,8 @@ using namespace std;
 
 random_device randomDevice;
 mt19937 mtrand(randomDevice());
-function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
+
+typedef void (*pFunc)(int);
 
 void DiceResultPrint(int diceRollNumber)
 {
@@ -21,14 +22,34 @@ void DiceResultPrint(int diceRollNumber)
 	}
 };
 
-int TimeCount(function<int()> coll,int &Timer)
+void GameResult(int diceAns, int playerAns)
+{
+	if (diceAns % 2 == 0 && playerAns == 2) {
+		printf("YouWin\n");
+	}
+	else if (diceAns % 2 == 1 && playerAns == 1) {
+		printf("YouWin\n");
+	}
+	else {
+		printf("YouLose\n");
+	}
+}
+
+void DiceRoll(int ans)
+{
+	int diceResult = uniform_int_distribution<int>(1, 6)(randomDevice);
+	DiceResultPrint(diceResult);
+	GameResult(diceResult, ans);
+}
+
+void TimeCount(pFunc fanc,int ans,int &Timer)
 {
 	for (; Timer > 0; Timer--)
 	{
 		printf("%d秒前\n", Timer);
 		Sleep(1000);
 	}
-	return coll();
+	fanc(ans);
 }
 
 int main() {
@@ -37,6 +58,7 @@ int main() {
 	int Timer = 3;
 	bool isSelect = false;
 
+	pFunc p;
 
 	while (true)
 	{
@@ -55,19 +77,9 @@ int main() {
 
 		if (isSelect)
 		{
-			int DiceResult = TimeCount(DiseRoll, Timer);
-			DiceResultPrint(DiceResult);
-
-			if (DiceResult % 2 == 0 && PlayerAns == 2) {
-				printf("YouWin\n");
-			}
-			else if (DiceResult % 2 == 1 && PlayerAns == 1) {
-				printf("YouWin\n");
-			}
-			else {
-				printf("YouLose\n");
-			}
-
+			p = DiceRoll;
+			TimeCount(p,PlayerAns,Timer);
+		
 			isSelect = false;
 			Timer = 3;
 		}
