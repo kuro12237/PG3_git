@@ -7,7 +7,6 @@ using namespace std;
 
 random_device randomDevice;
 mt19937 mtrand(randomDevice());
-function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
 
 void DiceResultPrint(int diceRollNumber)
 {
@@ -54,6 +53,8 @@ int main() {
 
 		if (isSelect)
 		{
+			function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
+
 			int DiceResult = SetTimeCount(DiseRoll, Timer);
 			DiceResultPrint(DiceResult);
 
