@@ -8,18 +8,6 @@ using namespace std;
 random_device randomDevice;
 mt19937 mtrand(randomDevice());
 
-void DiceResultPrint(int diceRollNumber)
-{
-	printf("%dが出ました\n", diceRollNumber);
-	
-	if (diceRollNumber % 2 == 0) {
-		printf("丁でした\n");
-	}
-	if (diceRollNumber % 2 == 1) {
-		printf("半でした\n");
-	}
-};
-
 int SetTimeCount(function<int()> coll,int &Timer)
 {
 	for (; Timer > 0; Timer--)
@@ -54,19 +42,36 @@ int main() {
 		if (isSelect)
 		{
 			function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
-
 			int DiceResult = SetTimeCount(DiseRoll, Timer);
+			
+			function<void(int)> DiceResultPrint = [](int diceRollNumber)
+			{
+				printf("%dが出ました\n", diceRollNumber);
+
+				if (diceRollNumber % 2 == 0) {
+					printf("丁でした\n");
+				}
+				if (diceRollNumber % 2 == 1) {
+					printf("半でした\n");
+				}
+			};
+
 			DiceResultPrint(DiceResult);
 
-			if (DiceResult % 2 == 0 && PlayerAns == 2) {
-				printf("YouWin\n");
-			}
-			else if (DiceResult % 2 == 1 && PlayerAns == 1) {
-				printf("YouWin\n");
-			}
-			else {
-				printf("YouLose\n");
-			}
+			function<void(int, int)>PrintGameOutcome = [](int DiceResult, int PlayerAns) {
+
+				if (DiceResult % 2 == 0 && PlayerAns == 2) {
+					printf("YouWin\n");
+				}
+				else if (DiceResult % 2 == 1 && PlayerAns == 1) {
+					printf("YouWin\n");
+				}
+				else {
+					printf("YouLose\n");
+				}
+			};
+
+			PrintGameOutcome(DiceResult, PlayerAns);
 
 			isSelect = false;
 			Timer = 3;
