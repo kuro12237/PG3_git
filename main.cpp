@@ -8,14 +8,14 @@ using namespace std;
 random_device randomDevice;
 mt19937 mtrand(randomDevice());
 
-int SetTimeCount(function<int()> coll,int &Timer)
+int SetTimeCount(function<int()> func,int &Timer)
 {
 	for (; Timer > 0; Timer--)
 	{
 		printf("%d秒前\n", Timer);
 		Sleep(1000);
 	}
-	return coll();
+	return func();
 }
 
 int main() {
