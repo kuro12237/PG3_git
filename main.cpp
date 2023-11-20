@@ -41,7 +41,11 @@ int main() {
 
 		if (isSelect)
 		{
-			function<int()> DiseRoll = []() {return std::uniform_int_distribution<int>(1, 6)(randomDevice); };
+			function<int()> DiseRoll = []() 
+			{
+				return std::uniform_int_distribution<int>(1, 6)(randomDevice); 
+			};
+
 			int DiceResult = SetTimeCount(DiseRoll, Timer);
 			
 			function<void(int)> DiceResultPrint = [](int diceRollNumber)
@@ -58,8 +62,8 @@ int main() {
 
 			DiceResultPrint(DiceResult);
 
-			function<void(int, int)>PrintGameOutcome = [](int DiceResult, int PlayerAns) {
-
+			function<void(int, int)>PrintGameOutcome = [](int DiceResult, int PlayerAns) 
+			{
 				if (DiceResult % 2 == 0 && PlayerAns == 2) {
 					printf("YouWin\n");
 				}
