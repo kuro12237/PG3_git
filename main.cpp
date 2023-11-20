@@ -21,7 +21,7 @@ void DiceResultPrint(int diceRollNumber)
 	}
 };
 
-int TimeCount(function<int()> coll,int &Timer)
+int SetTimeCount(function<int()> coll,int &Timer)
 {
 	for (; Timer > 0; Timer--)
 	{
@@ -54,7 +54,7 @@ int main() {
 
 		if (isSelect)
 		{
-			int DiceResult = TimeCount(DiseRoll, Timer);
+			int DiceResult = SetTimeCount(DiseRoll, Timer);
 			DiceResultPrint(DiceResult);
 
 			if (DiceResult % 2 == 0 && PlayerAns == 2) {
