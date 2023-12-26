@@ -2,13 +2,11 @@
 #include <list>
 #include <iostream>
 
-//std::stringを使ってはいけないということは
-//std::を抜けばいいということ!?
 using namespace std;
 
 int main() {
 
-	list<const char*> yamanoteStation{
+	list<const char*> Station{
 		"Tokyo","Kanda","Akihabara","Okachimachi","Ueno","Uguisudani","Nippori","Tabata","Komagome",
 		"Sugamo","Otsuka","Ikebukuro","Mejiro","Takadanobaba","Shin-Okubo","Shinjuku","Yoyogi","Harajuku","Shibuya",
 		"Ebisu","Meguro","Gotanda","Osaki","Shinagawa","Tamachi","Hamamatsucho","Shimbashi","Yurakucyo"
@@ -32,9 +30,9 @@ int main() {
 	//2019年
 	if (selectYear == 2019) {
 		cout << "2019年の駅一覧を表示" << "\n";
-		for (list<const char*>::iterator itr = yamanoteStation.begin(); itr != yamanoteStation.end(); ++itr) {
+		for (list<const char*>::iterator itr = Station.begin(); itr != Station.end(); ++itr) {
 			if (*itr == "Tabata") {
-				itr = yamanoteStation.insert(itr, "Nishi-Nippori");
+				itr = Station.insert(itr, "Nishi-Nippori");
 				++itr;
 			}
 		}
@@ -44,13 +42,13 @@ int main() {
 	//2022年
 	if (selectYear == 2022) {
 		cout << "2022年の駅一覧を表示" << "\n";
-		for (list<const char*>::iterator itr = yamanoteStation.begin(); itr != yamanoteStation.end(); ++itr) {
+		for (list<const char*>::iterator itr = Station.begin(); itr != Station.end(); ++itr) {
 			if (*itr == "Tabata") {
-				itr = yamanoteStation.insert(itr, "Nishi-Nippori");
+				itr = Station.insert(itr, "Nishi-Nippori");
 				++itr;
 			}
 			if (*itr == "Tamachi") {
-				itr = yamanoteStation.insert(itr, "Takanawa GateWay");
+				itr = Station.insert(itr, "Takanawa GateWay");
 				++itr;
 			}
 		}
@@ -58,7 +56,7 @@ int main() {
 	}
 
 	//追加した後に表示
-	for (list<const char*>::iterator itr = yamanoteStation.begin(); itr != yamanoteStation.end(); ++itr) {
+	for (list<const char*>::iterator itr = Station.begin(); itr != Station.end(); ++itr) {
 
 		cout << *itr << "\n";
 	}
