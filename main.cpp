@@ -19,7 +19,7 @@ int main() {
 	string CopyText_A = Text_A;
     end = chrono::steady_clock::now();
 
-   int copyResult = std::chrono::duration_cast<chrono::microseconds>(end - now).count();
+   int copyResult = chrono::duration_cast<chrono::microseconds>(end - now).count();
 
 	cout << "コピーの場合" << "\n";
 	cout << copyResult << "\n";
