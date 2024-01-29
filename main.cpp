@@ -5,23 +5,34 @@
 
 using namespace std;
 
-void DrawText(const string text)
-{
-	cout << text << endl;
-}
-
 int main() {
 
-	vector<string> texts{ "thread 1","thread 2","thread 3" };
+	const int Text_Size = 100000;
+	string Text_A(Text_Size, 'a');
+	cout << Text_Size << "文字コピーと移動を比較\n";
 
-	thread th1(DrawText, texts[0]);
-	th1.join();
+	chrono::steady_clock::time_point now;
+	chrono::steady_clock::time_point end;
 
-	thread th2(DrawText, texts[1]);
-	th2.join();
+	///copy
+	now = chrono::steady_clock::now();
+	string CopyText_A = Text_A;
+    end = chrono::steady_clock::now();
 
-	thread th3(DrawText, texts[2]);
-	th3.join();
+   int copyResult = std::chrono::duration_cast<chrono::microseconds>(end - now).count();
+
+	cout << "コピーの場合" << "\n";
+	cout << copyResult << "\n";
+
+	///move
+	now = chrono::steady_clock::now();
+	string MoveText_A = move(Text_A);
+	end = chrono::steady_clock::now();
+
+	int MoveResult = chrono::duration_cast<chrono::microseconds>(end - now).count();
+
+	cout << "移動の場合" << "\n";
+	cout << MoveResult << " \n";
 
 	return 0;
 }
