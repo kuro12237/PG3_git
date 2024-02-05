@@ -10,6 +10,7 @@ int main() {
 	const int Text_Size = 100000;
 	string Text_A(Text_Size, 'a');
 	cout << Text_Size << "文字コピーと移動を比較\n";
+
 	chrono::steady_clock::time_point now;
 	chrono::steady_clock::time_point end;
 
